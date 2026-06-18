@@ -6,7 +6,7 @@ using T3_Montes_Martin.Models;
 
 namespace T3_Montes_Martin.Controllers
 {
-    [Authorize] // HABILITA EL BLOQUEO SIN AUTORIZACION
+    [Authorize] // HABILITA EL BLOQUEO SIN AUTORIZACION_
     public class LibrosController : Controller
     {
         private readonly ApplicationDbContext _context;
