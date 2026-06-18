@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-//modelo libro para t3_MONTES
+//modelo libro para t3_MONTESSS
 namespace T3_Montes_Martin.Models
 {
     public class Libro
