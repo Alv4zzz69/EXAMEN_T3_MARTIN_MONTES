@@ -1,0 +1,60 @@
+﻿@model IEnumerable<T3_Montes_Martin.Models.Libro>
+
+@{
+    ViewData["Title"] = "Mantenimiento Libros";
+}
+
+<div class="container my-4">
+    <div class="border rounded p-4 bg-white shadow-sm">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <h2 class="text-primary fw-bold mb-0">Sistema de Control de Libros</h2>
+                <small class="text-muted">Examen T3 — Alumno: Martin Montes</small>
+            </div>
+            <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                <a asp-action="Create" class="btn btn-success px-4 fw-bold">+ Registrar Nuevo Libro</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered mb-0">
+                <thead class="bg-primary text-white text-center">
+                    <tr>
+                        <th class="py-3">Título del Libro</th>
+                        <th class="py-3">Autor</th>
+                        <th class="py-3">Editorial</th>
+                        <th class="py-3">Año</th>
+                        <th class="py-3">Páginas</th>
+                        <th class="py-3">Copias</th>
+                        <th class="py-3">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center py-4 text-muted">No se encontraron registros en la base de datos.</td>
+                        </tr>
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-bold text-secondary">@item.Titulo</td>
+                            <td>@item.Autor</td>
+                            <td>@item.Editorial</td>
+                            <td class="text-center">@item.AnioPublicacion</td>
+                            <td class="text-center">@item.Paginas</td>
+                            <td class="text-center fw-bold">@item.Copias</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary px-3">Editar</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger px-3">Eliminar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
